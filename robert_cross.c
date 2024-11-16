@@ -7,7 +7,6 @@
 
 //#define MAX(a, b) ((a) > (b) ? (a) : (b))
 
-
 // Function to calculate Roberts Cross gradient
 void robert_cross(unsigned char* input, unsigned char* output, int width, int height, int channels) {
     for (int y = 0; y < height - 1; y++) {
