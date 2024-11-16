@@ -50,7 +50,7 @@ int main() {
 
     // Choose between one of the two 
     //applyPrewitt(input_image, filtered_image, width, height, threshold);
-    apply_robert_cross(input_image, filtered_image, width, height, threshold);
+    apply_robert_cross(input_image, filtered_image, width, height, channels);
 
     // Save the output image
     stbi_write_png("output_image.jpg", width, height, 1, filtered_image, width);
