@@ -8,7 +8,7 @@
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
 // Function to calculate Roberts Cross gradient
-void roberts_cross(unsigned char* input, unsigned char* output, int width, int height, int channels) {
+void robert_cross(unsigned char* input, unsigned char* output, int width, int height, int channels) {
     for (int y = 0; y < height - 1; y++) {
         for (int x = 0; x < width - 1; x++) {
             int idx = y * width + x;
@@ -66,15 +66,13 @@ int main() {
         return 1;
     }
 
-    unsigned char *output_image = (unsigned char *)malloc(width * height);
-
     // Apply Roberts Cross edge detection
-    roberts_cross(input_image, output_image, width, height, channels);
-    stbi_write_png("output_image.jpg", width, height, 1, output_image, width);
+    robert_cross(input_image, filtered_image, width, height, channels);
+    stbi_write_png("output_image.jpg", width, height, 1, filtered_image, width);
 
     // Free resources
-    free(output_image);
-    stbi_image_free(input_image);
+    free(input_image);
+    free(filtered_image);
 
     return 0;
 }
