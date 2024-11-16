@@ -19,17 +19,18 @@ void robert_cross(unsigned char* input, unsigned char* output, int width, int he
             unsigned char P3 = input[(idx + width) * channels];
             unsigned char P4 = input[(idx + width + 1) * channels];
 
-        /*
+            // Euclidean is smoother of them all
+            output[idx] = (int)sqrt((P1-P4)*(P1-P4) + (P2-P3)*(P2-P3));
+
             // Calculate Roberts Cross gradients + MAX assigner
-            int Gx = abs(I1 - I4);
-            int Gy = abs(I2 - I3);
+            //int Gx = abs(P1 - P4);
+            //int Gy = abs(P2 - P3);
 
             // Combine gradients
-            output[idx] = (unsigned char)(MAX(Gx, Gy));
-        */
+            //output[idx] = (unsigned char)(MAX(Gx, Gy));
 
             // Calculate Roberts Cross gradients as merged kernel
-            output[idx] = abs(P1 - P4) + abs(P2 - P3);
+            //output[idx] = Gx + Gy;
         }
     }
 }
