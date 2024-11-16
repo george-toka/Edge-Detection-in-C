@@ -5,7 +5,7 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "tutorial_stb-image_library_examples/stb_image/stb_image_write.h"
 
-#define MAX(a, b) ((a) > (b) ? (a) : (b))
+//#define MAX(a, b) ((a) > (b) ? (a) : (b))
 
 // Function to calculate Roberts Cross gradient
 void robert_cross(unsigned char* input, unsigned char* output, int width, int height, int channels) {
@@ -14,20 +14,22 @@ void robert_cross(unsigned char* input, unsigned char* output, int width, int he
             int idx = y * width + x;
 
             // Get neighboring pixel intensities
-            unsigned char I1 = input[idx * channels];
-            unsigned char I2 = input[(idx + 1) * channels];
-            unsigned char I3 = input[(idx + width) * channels];
-            unsigned char I4 = input[(idx + width + 1) * channels];
+            unsigned char P1 = input[idx * channels];
+            unsigned char P2 = input[(idx + 1) * channels];
+            unsigned char P3 = input[(idx + width) * channels];
+            unsigned char P4 = input[(idx + width + 1) * channels];
 
-            // Calculate Roberts Cross gradients
+        /*
+            // Calculate Roberts Cross gradients + MAX assigner
             int Gx = abs(I1 - I4);
             int Gy = abs(I2 - I3);
 
             // Combine gradients
-            unsigned char magnitude = (unsigned char)(MAX(Gx, Gy));
-            
-            // Write the output (grayscale, so only one channel)
-            output[idx] = magnitude;
+            output[idx] = (unsigned char)(MAX(Gx, Gy));
+        */
+
+            // Calculate Roberts Cross gradients as merged kernel
+            output[idx] = abs(P1 - P4) + abs(P2 - P3);
         }
     }
 }
@@ -35,7 +37,7 @@ void robert_cross(unsigned char* input, unsigned char* output, int width, int he
 int main() {
     // Load the input image
     int width, height, channels;
-    unsigned char *input_image = stbi_load("one.jpg", &width, &height, &channels, 0);
+    unsigned char *input_image = stbi_load("bike.jpg", &width, &height, &channels, 0);
     if (input_image == NULL) {
         printf("Error: Could not load the image.\n");
         return 1;
