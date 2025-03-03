@@ -1,0 +1,22 @@
+ROM 0x0 0x4600
+{
+	ROM 0x0 0x4600
+	{
+		*.o ( +RO )
+	}
+
+	
+	SRAM 0x4600 0x1F4
+	{
+		* ( +RW)
+		* (cache)
+		
+	}
+
+	DRAM 0x47F4 0x1C4000
+	{
+		*(+ZI)
+		*(rw_ram)	
+	}
+
+}

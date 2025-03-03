@@ -1,0 +1,32 @@
+ROM 0x0 0x4718
+{
+	ROM 0x0 0x4718
+	{
+		*.o ( +RO )
+	}
+
+	L1Cash 0x4718 0x258
+	{
+		* (L1Cache)
+		
+	}
+	
+
+	L2Cash 0x4D18 0x125C
+	{
+
+		* (L2Cache)
+		
+	}
+
+	RAM 0x5F74 0x1C4000
+	{
+		* (+RW)
+		*(+ZI)
+		*(rw_ram)	
+	}
+
+	
+	
+
+}

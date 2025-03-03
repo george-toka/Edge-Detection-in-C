@@ -1,0 +1,32 @@
+ROM 0x0 0x4900
+{
+	ROM 0x0 0x4900
+	{
+		*.o ( +RO )
+	}
+
+	L1Cash 0x4900 0x258
+	{
+		* (L1Cache)
+		
+	}
+	
+
+	L2Cash 0x4B58 0x125C
+	{
+
+		* (L2Cache)
+		
+	}
+
+	RAM 0x5DB4 0x1C4000
+	{
+		* (+RW)
+		*(+ZI)
+		*(rw_ram)	
+	}
+
+	
+	
+
+}
