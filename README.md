@@ -16,6 +16,7 @@ Implemented memory architecture using CodeWarrior IDE.
 
 Designed a memory hierarchy using SRAM caches and DRAM RAM.
 - Analyzed microprocessor performance by varying read/write speeds across different memory banks.
-  
-![prewitt](https://github.com/user-attachments/assets/56a5eb51-8b14-4d93-8333-87ff45cc8fe8) Prewitt Output
-![roberts_output](https://github.com/user-attachments/assets/a9f93f49-a91b-491f-b530-4ec9f30c3030) Robert Cross Output
+
+  Prewitt and Robert Cross Operators' output from left to right: 
+![prewitt](https://github.com/user-attachments/assets/56a5eb51-8b14-4d93-8333-87ff45cc8fe8) 
+![roberts_output](https://github.com/user-attachments/assets/a9f93f49-a91b-491f-b530-4ec9f30c3030) 
